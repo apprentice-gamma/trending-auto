@@ -16,7 +16,10 @@
 
 <body>
 	<div id="main" ng-app="twitterApp">
-		<h1>{{1+2}}</h1>
+		<div ng-controller="trendController as trend">
+			<h1>{{1+2}}</h1>
+			<h1>{{trend.getToken()}}</h1>
+		</div>
 	</div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.js"></script>
   <script src="../bower_components/codebird-js/codebird.js"></script>
