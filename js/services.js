@@ -7,9 +7,10 @@
 		"consumerKey",
 		"consumerSecret",
 		"bearerToken",
-		function(consumerKey, consumerSecret, bearerToken){
+		"$scope",
+		function(consumerKey, consumerSecret, bearerToken, $scope){
 			var vm = this;
-			var trends;
+			$scope.trends;
       		//vm.hello = "Hello World!";
 			vm.getTrends = function(){
 			 	console.log("method gets called.");
@@ -22,12 +23,12 @@
 		          "trends_place",
 		          params,
 		          function(reply){
+		            $scope.trends = reply[0].trends;
 		            console.log(reply[0].trends); 
 		          }
 		        );
 			}
-			trends = vm.getTrends();
-	        console.log(trends);
-	        return trends;
+			console.log($scope.trends);
+	        return $scope.trends;
 	}]);
 })();
