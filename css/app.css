@@ -4,20 +4,22 @@
   left: 0;
   width: 800px;
   height: 380px;
-  background-color: #F4F4F4;
+  background-color: #00A6DC;
   padding: 0px;
-  border: 2px solid grey;
+  border: 2px solid #2BB23E;
+  color: #EEE;
 }
 
 header {
   text-align: center;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #CCC;
 }
 
 h1 {
   width: 219px;
   margin: 0 auto;
   margin-top: 40px;
+  margin-left: 20px;
   font-size: 70px;
   display: inline-block;
 }
@@ -29,4 +31,5 @@ button {
   padding: 20px;
   font-size: 28px;
   border-radius: 10px;
+  background-color: #2BB23E;
 }
