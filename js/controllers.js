@@ -1,6 +1,7 @@
 (function() {	
-	var trendController = angular.module('trendController', []);
+	var trendController = angular.module('trendControllers', []);
 	
+	trendController.controller('trendController', ) = 
 
 			$scope.getToken = function(){
 			 	console.log("method gets called.");
