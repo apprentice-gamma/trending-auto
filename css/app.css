@@ -4,7 +4,18 @@
   left: 0;
   width: 800px;
   height: 380px;
-  background-color: #F4F4F4;
+  background-color: #00A6DC;
   padding: 0px;
-  border: 2px solid grey;
+  border: 2px solid #2BB23E;
+  color: #EEE;
+}
+
+#main p {
+	padding: 5px;
+	margin: 5px;
+}
+
+#main h1 {
+	padding: 5px;
+	margin: 5px;
 }
