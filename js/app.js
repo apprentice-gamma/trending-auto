@@ -1,6 +1,9 @@
 (function(){
 	var app = angular.module('twitterApp', [
-	'TwitterControllers','twitterKey' 
+	'TwitterControllers',
+	'TwitterServices',
+	'TwitterControllers',
+	'twitterKey' 
 	]);
 })();
 
