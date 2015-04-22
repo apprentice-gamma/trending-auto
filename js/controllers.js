@@ -1,7 +1,7 @@
 (function() {	
-	var twitterControllers = angular.module('twitterControllers', []);
+	var TwitterControllers = angular.module('TwitterControllers', []);
 	
-	twitterControllers.controller('trendController', [function(){
+	TwitterControllers.controller('trendController', [function(){
 
 			$scope.getToken = function(){
 			 	console.log("method gets called.");
