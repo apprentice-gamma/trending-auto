@@ -10,25 +10,16 @@
   color: #EEE;
 }
 
-#main p {
-	padding: 5px;
-	margin: 5px;
-}
-
-#main h1 {
-	padding: 5px;
-	margin: 5px;
-}
-
 header {
   text-align: center;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #CCC;
 }
 
 h1 {
   width: 219px;
   margin: 0 auto;
   margin-top: 40px;
+  margin-left: 20px;
   font-size: 70px;
   display: inline-block;
 }
@@ -40,4 +31,5 @@ button {
   padding: 20px;
   font-size: 28px;
   border-radius: 10px;
+  background-color: #2BB23E;
 }
