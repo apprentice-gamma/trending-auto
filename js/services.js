@@ -18,17 +18,18 @@
 		        cb.setBearerToken(bearerToken);
 		        var params = { "id": 2391585};
 		        
-		        return cb.__call(
+		        var what = cb.__call(
 		          "trends_place",
 		          params,
 		          function(reply){
 		          	var data = reply[0].trends;
 		          	console.log(data);
-		            return deferred.resolve(data);
+		            return deferred.resolve(data); 
 		          }
 		        );
+		        console.log(deferred.promise);
+				return deferred.promise;
 			}
-			//console.log(trends);
-	        return deferred.promise;
+			return vm.getTrends();
 	}]);
 })();
