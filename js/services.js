@@ -27,9 +27,9 @@
               console.log(reply.access_token);
 	    		});
         	*/
-        	trends = vm.getTrends();
-        	return trends;
 			}
-
+			trends = vm.getTrends();
+	        console.log(trends);
+	        return trends;
 	}]);
 })();

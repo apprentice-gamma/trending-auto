@@ -30,7 +30,6 @@
               console.log(reply.access_token);
 	    		});
         	*/
-		}
 	}]);
 
 	TwitterControllers.controller('SpeechController', [
