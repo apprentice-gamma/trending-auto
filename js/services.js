@@ -1,6 +1,7 @@
 (function() {	
 	
-	var TwitterServices = angular.module('TwitterServices', []);
+	var TwitterServices = angular.module('TwitterServices', [
+		]);
 
 	TwitterServices.factory('Trends', [function(){
 			var vm = this;
@@ -9,8 +10,8 @@
 			vm.getTrends = function(){
 			 	console.log("method gets called.");
 		        var cb = new Codebird;
-		        cb.setConsumerKey("placeholder")
-		        cb.setBearerToken("oops");
+		        cb.setConsumerKey();
+		        cb.setBearerToken();
 		        var params = { "id": 2391585};
 		        return cb.__call(
 		          "trends_place",
