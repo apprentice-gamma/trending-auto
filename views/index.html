@@ -22,9 +22,9 @@
     </header>
 		<!-- All visible stuff goes here -->
 		<div ng-controller="TrendController as trend">
-      <h3 ng-repeat="name in trend.trendsNameArray">
+      <div class="twitter-headline" ng-repeat="name in trend.trendsNameArray">
           {{name}}<br />
-      </h3>
+      </div>
 		</div>
 	</div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.js"></script>
