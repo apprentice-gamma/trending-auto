@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -16,6 +16,11 @@
 
 <body>
 	<div id="main" ng-app="twitterApp">
+    <header>
+      <h1>moTrends</h1>
+      <button>Close</button>
+    </header>
+		<!-- All visible stuff goes here -->
 		<div ng-controller="TrendController as trend">
 			<h1>{{1+2}}</h1>
 			<h1>{{trend.getToken()}}</h1>
