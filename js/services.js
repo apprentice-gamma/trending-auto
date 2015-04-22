@@ -7,7 +7,7 @@
 		"consumerKey",
 		"consumerSecret",
 		"bearerToken",
-		function(consumerKey,consumerSecret, bearerToken){
+		function(consumerKey, consumerSecret, bearerToken){
 			var vm = this;
 			var trends;
       		//vm.hello = "Hello World!";
