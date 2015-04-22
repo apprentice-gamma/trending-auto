@@ -7,11 +7,10 @@
 		"consumerKey",
 		"consumerSecret",
 		"bearerToken",
-		"$scope",
-		function(consumerKey, consumerSecret, bearerToken, $scope){
+		"$q",
+		function(consumerKey, consumerSecret, bearerToken, $q){
 			var vm = this;
-			$scope.trends;
-      		//vm.hello = "Hello World!";
+			var deferred = $q.defer();
 			vm.getTrends = function(){
 			 	console.log("method gets called.");
 		        var cb = new Codebird;
@@ -23,12 +22,13 @@
 		          "trends_place",
 		          params,
 		          function(reply){
-		            $scope.trends = reply[0].trends;
-		            console.log(reply[0].trends); 
+		          	var data = reply[0].trends;
+		          	console.log(data);
+		            return deferred.resolve(data);
 		          }
 		        );
 			}
-			console.log($scope.trends);
-	        return $scope.trends;
+			//console.log(trends);
+	        return deferred.promise;
 	}]);
 })();
