@@ -7,15 +7,15 @@
 		"consumerKey",
 		"consumerSecret",
 		"bearerToken",
-		function(){
+		function(consumerKey,consumerSecret, bearerToken){
 			var vm = this;
 			var trends;
       		//vm.hello = "Hello World!";
 			vm.getTrends = function(){
 			 	console.log("method gets called.");
 		        var cb = new Codebird;
-		        cb.setConsumerKey("consumerKey", "consumerSecret");
-		        cb.setBearerToken("bearerToken");
+		        cb.setConsumerKey(consumerKey, consumerSecret);
+		        cb.setBearerToken(bearerToken);
 		        var params = { "id": 2391585};
 		        
 		        return cb.__call(
