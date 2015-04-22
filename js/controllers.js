@@ -1,14 +1,14 @@
 (function() {	
 	var TwitterControllers = angular.module('TwitterControllers', []);
 	
-	TwitterControllers.controller('TrendController', [function(){
+	TwitterControllers.controller('TrendController', ["consumerKey","consumerSecret","bearerToken",function(consumerKey,consumerSecret,bearerToken ){
 			var vm = this;
       vm.hello = "Hello World!";
 			vm.getToken = function(){
 			 	console.log("method gets called.");
         var cb = new Codebird;
-        cb.setConsumerKey("Consumerkey(API)","Secret")
-        cb.setBearerToken("BearerToken");
+        cb.setConsumerKey(consumerKey,consumerSecret)
+        cb.setBearerToken(bearerToken);
         var params = { "id": 2391585};
         return cb.__call(
           "trends_place",
