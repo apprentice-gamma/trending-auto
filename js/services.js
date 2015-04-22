@@ -3,7 +3,11 @@
 	var TwitterServices = angular.module('TwitterServices', [
 		]);
 
-	TwitterServices.factory('Trends', [function(){
+	TwitterServices.factory('Trends', [
+		"consumerKey",
+		"consumerSecret",
+		"bearerToken",
+		function(){
 			var vm = this;
 			var trends;
       		//vm.hello = "Hello World!";
