@@ -2,12 +2,13 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 800px;
-  height: 380px;
+  width: 796px;
+  height: 376px;
   background-color: #00A6DC;
   padding: 0px;
   border: 2px solid #2BB23E;
   color: #EEE;
+  font-family: sans-serif;
 }
 
 header {
@@ -32,4 +33,10 @@ button {
   font-size: 28px;
   border-radius: 10px;
   background-color: #2BB23E;
+}
+
+.twitter-headline {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 60px;
 }
