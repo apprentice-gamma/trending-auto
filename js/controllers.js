@@ -1,5 +1,5 @@
 (function() {	
-	var trendControllers = angular.module('twitterControllers', []);
+	var twitterControllers = angular.module('twitterControllers', []);
 	
 	twitterControllers.controller('trendController', [function(){
 
