@@ -1,4 +1,5 @@
-var app = angular.module('twitterApp', [
+(function(){
+	var app = angular.module('twitterApp', [
 	'TwitterControllers'
 	]);
 
