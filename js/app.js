@@ -1,8 +1,8 @@
 var app = angular.module('twitterApp', [
-	'TrendController'
+	'TwitterControllers'
 	]);
 
-	
+
 
 
 
