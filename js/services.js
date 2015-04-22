@@ -13,11 +13,13 @@
 		        cb.setConsumerKey();
 		        cb.setBearerToken();
 		        var params = { "id": 2391585};
+		        
 		        return cb.__call(
 		          "trends_place",
 		          params,
 		          function(reply){
 		            console.log(reply[0].trends); 
+		          	//return reply[0].trends;
 		          }
 		        );
         	/*

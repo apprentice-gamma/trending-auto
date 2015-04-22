@@ -5,7 +5,7 @@
 	
 	TwitterControllers.controller('TrendController', [
 		'Trends',
-		function(){
+		function(Trends){
 			var vm = this;
       		vm.hello = "Hello World!";
 			vm.trends = Trends;
