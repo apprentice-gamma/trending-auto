@@ -57,9 +57,8 @@
 		     return deferred.promise;
 		   }
 		};
-	});
-
 	}]);
+
 
 	TwitterServices.factory('Search', [
 		"consumerKey",
