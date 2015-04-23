@@ -17,6 +17,13 @@
 			})
 	}]);
 
+	TwitterControllers.controller('SearchController',[
+		//dependencies go here
+		function(){
+			var vm = this;
+			vm.searchResults = [];
+	}]);
+
 	TwitterControllers.controller('SpeechController', [
 		function(){
 	}]);
