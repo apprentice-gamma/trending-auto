@@ -37,7 +37,7 @@
 							"search_tweets",
 							params,
 							function (reply) {
-								var data = reply;
+								var data = reply.statuses;
 		          				console.log(data);
 		            			return deferred.resolve(data);
 							}
@@ -45,6 +45,8 @@
 				console.log(deferred.promise);
 				return deferred.promise;
 			}
+			vm.searchString = "cats";
+			vm.querySearch = vm.doSearch(vm.searchString);
 	}]);
 
 	TwitterControllers.controller('SpeechController', [
