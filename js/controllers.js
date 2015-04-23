@@ -20,10 +20,10 @@
 	TwitterControllers.controller('SearchController',[
 		'Search',
 		'Sentiment',
-		function(Search){
+		function(Search, Sentiment){
 			var vm = this;
 			vm.searchResults = Search.getTweets("cats");
-			vm.sentiment = Sentiment.getSentiment(searchResults);
+			vm.sentiment = Sentiment.getSentiment(vm.searchResults);
 	}]);
 
 	TwitterControllers.controller('SpeechController', [

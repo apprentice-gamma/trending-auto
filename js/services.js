@@ -34,20 +34,16 @@
 	}]);
 
 	TwitterServices.factory('Sentiment',[
-		"Search",
-		"SearchController",
-		"Trends",
 		"$q",
-		"$http",
-		function(Search, Trends, $q, $http){
+		"$http",	
+		function($q, $http){
 		
 		return {
 		   getSentiment: function(tweets) {
 		   	console.log("sentiment is happening");
-		   	var vm = this;
-			vm.search = SearchController.searchString;
-			vm.tweets = Search.getTweets(search);
-		    vm.deferred = $q.defer();
+			//var search = SearchController.searchString;
+			//var tweets = Search.getTweets(search);
+		    var deferred = $q.defer();
 		    $http.post('http://www.sentiment140.com/api/bulkClassifyJson', tweets)
 		       .success(function(data) { 
 		          deferred.resolve(data)
