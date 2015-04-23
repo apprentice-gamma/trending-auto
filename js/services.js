@@ -33,35 +33,55 @@
 	}]);
 
 	TwitterServices.factory('Speech', [
-		"SpeechController",
-		function(SpeechController) {
-			console.log("in Speech service beginning, text is: " + SpeechController.text);
-			var vm = this;
-			vm.text = SpeechController.text;
-			vm.speak = function(text) {
-				var utterance = new SpeechSynthesisUtterance();
-				var voices = window.speechSynthesis.getVoices();
-				console.log("in Speech service, speak function, text is: " + text);
+		"$q",
+		function($q) {
+			return {
+				speak: function(text) {
+					var deferred = $q.defer();
+					var utterance = new SpeechSynthesisUtterance();
+					var voices = window.speechSynthesis.getVoices();
 
-				utterance.text = text;
+					utterance.voice = voices.filter(function(voice) {
+						return voice.name == 'Daniel';
+					})[0];
 
-				/* Set the attributes (these all default to 1)
-				Tried this, but it's erroring out that volumeInput, rateInput, and pitchInput are not defined
-				utterance.volume = parseFloat(volumeInput.value);
-				utterance.rate = parseFloat(rateInput.value);
-				utterance.pitch = parseFloat(pitchInput.value);
-				*/
+					utterance.text = text;
 
-				// Set the utterance instance's voice attribute to "Daniel",
-				// a voice that enunciates and tends to pronouce twitter tags clearly.
-				utterance.voice = voices.filter(function(voice) { return voice.name == 'Daniel'; })[0];
-
-				console.log("in Speech service, end of speak, text is: " + text);
-				return window.speechSynthesis.speak(utterance);
+					deferred.resolve(window.speechSynthesis.speak(utterance));
+					return deferred;
+				}
 			}
-			console.log("in Speech service, end of function, text is: " + vm.text);
-
-			return vm.speak(vm.text);
 		}
 	])
+
+	TwitterServices.factory('Search', [
+		"consumerKey",
+		"consumerSecret",
+		"bearerToken",
+		"$q",
+		function(consumerKey, consumerSecret, bearerToken, $q){
+			return {
+				deferred: $q.defer(),
+				getTweets: function(search){
+				 	console.log("Search method called");
+					var cb = new Codebird;
+					var deferred = $q.defer();
+					cb.setConsumerKey(consumerKey, consumerSecret);
+			        cb.setBearerToken(bearerToken);
+			        var params = { "q": search};
+			        cb.__call(
+						"search_tweets",
+						params,
+						function (reply) {
+							var data = reply.statuses;
+	          				console.log(data);
+	            			return deferred.resolve(data);
+						}
+					)
+					console.log(deferred.promise);
+					return deferred.promise;
+				}
+    		}
+    	}
+	]);
 })();

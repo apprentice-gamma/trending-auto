@@ -22,14 +22,16 @@
     </header>
 		<!-- All visible stuff goes here -->
 		<div ng-controller="TrendController as trend">
-      <div ng-controller="SpeechController as speech">
+      <div class="city" ng-controller="SpeechController as speech">
+        {{speech.speak("Your trends for Detroit are")}}Detroit
         <div class="twitter-headline" ng-repeat="name in trend.trendsNameArray">
-            {{speech.speak("Hello World")}}
-
-            <!-- {{speak(name)}}{{name}}<br /> -->
+            {{speech.speak(name)}}{{name}}<br />
         </div>
       </div>
 		</div>
+    <div ng-controller="SearchController as search">
+      {{search.doSearch("cats")}}
+    </div>
 	</div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.js"></script>
   <script src="../bower_components/codebird-js/codebird.js"></script>

@@ -11,19 +11,25 @@
 			vm.trends = Trends;
 			vm.trends.then(function(headlineArray){
 				headlineArray.forEach(function(singleTrend) {
-					console.log(singleTrend.name);
 					vm.trendsNameArray.push(singleTrend.name);
 				})
 			})
+	}]);
+
+	TwitterControllers.controller('SearchController',[
+		'Search',
+		function(Search){
+			var vm = this;
+			vm.searchResults = Search.getTweets("cats");
 	}]);
 
 	TwitterControllers.controller('SpeechController', [
 		'Speech',
 		function(Speech){
 			var vm = this;
-			vm.speech = Speech;
-			vm.text = "Hello World";
-			vm.speak = Speech.speak(vm.text);
+			vm.speak = function(text) {
+				Speech.speak(text);
+			}
 		}
 	]);
 })();
