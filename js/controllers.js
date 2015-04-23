@@ -21,9 +21,7 @@
 		'Search',
 		function(Search){
 			var vm = this;
-			vm.searchResults = [];
-			vm.searchString = "cats";
-			vm.searchResults = Search;
+			vm.searchResults = Search.getTweets("cats");
 	}]);
 
 	TwitterControllers.controller('SpeechController', [

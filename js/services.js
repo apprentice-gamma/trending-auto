@@ -38,26 +38,10 @@
 		"consumerSecret",
 		"bearerToken",
 		"$q",
-		"SearchController",
-		function(consumerKey, consumerSecret, bearerToken, $q, SearchController){
-			/*	HOW TO DO A SEARCH
-				var params = {
-						q: "NYC"
-					};
-						cb.__call(
-							"search_tweets",
-							params,
-							function (reply) {
-								// ...
-							}
-						);
-			*/
-
-
-			var vm = this;
-			var deferred = $q.defer();
-			vm.search = SearchController.searchString;
-			vm.getTweets = function(search){
+		function(consumerKey, consumerSecret, bearerToken, $q){
+      return {
+			  deferred: $q.defer(),
+			getTweets: function(search){
 			 	console.log("Search method called");
 				var cb = new Codebird;
 				var deferred = $q.defer();
@@ -76,7 +60,7 @@
 				console.log(deferred.promise);
 				return deferred.promise;
 			}
-			return vm.getTweets(search);
+    }
 	}]);
 
 })();
