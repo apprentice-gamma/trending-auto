@@ -28,6 +28,7 @@
 			vm.searchResults = [];
 			vm.doSearch = function(search){
 				console.log("Search method called");
+				var cb = new Codebird;
 				var deferred = $q.defer();
 				cb.setConsumerKey(consumerKey, consumerSecret);
 		        cb.setBearerToken(bearerToken);
