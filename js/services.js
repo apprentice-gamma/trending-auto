@@ -40,11 +40,25 @@
 		function($q, $http, appID){
 		
 			return {
-			   getSentiment: function(tweets) {
+				url: 'http://www.sentiment140.com/api/classify?'
+				deferred: $q.defer();
+
+			    getSentiment: function(tweets) {
 				//could use single classification...
 				//get array of tweets, loop through them to classify (maybe not even all)
 				//get back object with polarity, push to new array
-				//return new array   	
+				//return new array 
+					var vm = this;
+					var text;
+					for(i = 0; i < tweets.length; i++){
+						text = tweets[i].text
+						console.log(i);
+						 $http.jsonp(vm.url + 'text=' + '/' + lat + ',' + lng + '?callback=JSON_CALLBACK')
+					}
+
+
+
+
 				};
 			}
 	}]);
