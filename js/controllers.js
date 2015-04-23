@@ -4,8 +4,8 @@
 		]);
 
 	TwitterControllers.controller('TrendController', [
-		'Trends',
-		function(Trends){
+		'Trends','Speech',
+		function(Trends,Speech){
 			var vm = this;
 			vm.trendsNameArray = [];
 			vm.trends = Trends;
@@ -13,7 +13,12 @@
 				headlineArray.forEach(function(singleTrend) {
 					vm.trendsNameArray.push(singleTrend.name);
 				})
-			})
+        Speech.speak("Your trends for Detroit are");
+        vm.trendsNameArray.forEach(function(word) {
+          Speech.speak(word);
+        })
+
+      })
 	}]);
 
 	TwitterControllers.controller('SearchController',[
@@ -27,9 +32,6 @@
 		'Speech',
 		function(Speech){
 			var vm = this;
-			vm.speak = function(text) {
-				Speech.speak(text);
-			}
 		}
 	]);
 })();
