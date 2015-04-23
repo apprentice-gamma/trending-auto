@@ -37,14 +37,24 @@
 		"Search",
 		"Trends",
 		"$q",
-		function(Search, Trends, $q){
+		"$http",
+		function(Search, Trends, $q, $http){
 		var vm = this;
-		var promise = $http.get('/api/v1/movies/avengers');
- 		
-		promise.then(
-  			function(payload) {
-   				$scope.movieContent = payload.data;
-   			}
+		return {
+		   getMovie: function(movie) {
+		     var deferred = $q.defer();
+		     $http.get('/api/v1/movies/' + movie)
+		       .success(function(data) { 
+		          deferred.resolve({
+		             title: data.title,
+		             cost: data.price});
+		       }).error(function(msg, code) {
+		          deferred.reject(msg);
+		          $log.error(msg, code);
+		       });
+		     return deferred.promise;
+		   }
+		};
 	});
 
 	}]);
