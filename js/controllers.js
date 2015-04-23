@@ -37,7 +37,7 @@
 							"search_tweets",
 							params,
 							function (reply) {
-								var data = reply[0];
+								var data = reply;
 		          				console.log(data);
 		            			return deferred.resolve(data);
 							}
