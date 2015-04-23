@@ -47,14 +47,14 @@
 
 			    // Check if the XMLHttpRequest object has a "withCredentials" property.
 			    // "withCredentials" only exists on XMLHTTPRequest2 objects.
-			    xhr.open(post, 'http://www.sentiment140.com/api/bulkClassifyJson?'+appID, true);
+			    xhr.open($http.post, 'http://www.sentiment140.com/api/bulkClassifyJson?'+appID, true);
 
 			  } else if (typeof XDomainRequest != "undefined") {
 
 			    // Otherwise, check if XDomainRequest.
 			    // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
 			    xhr = new XDomainRequest();
-			    xhr.open(post, 'http://www.sentiment140.com/api/bulkClassifyJson?'+appID, true);
+			    xhr.open($http.post, 'http://www.sentiment140.com/api/bulkClassifyJson?'+appID, true);
 
 			  } else {
 
