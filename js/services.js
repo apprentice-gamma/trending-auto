@@ -35,15 +35,19 @@
 
 	TwitterServices.factory('Sentiment',[
 		"Search",
+		"SearchController",
 		"Trends",
 		"$q",
 		"$http",
 		function(Search, Trends, $q, $http){
-		var vm = this;
+		
 		return {
-		   getMovie: function(movie) {
-		     var deferred = $q.defer();
-		     $http.get('/api/v1/movies/' + movie)
+		   getSentiment: function(tweets) {
+		   	var vm = this;
+			vm.search = SearchController.searchString;
+			vm.tweets = Search.getTweets(search);
+		    vm.deferred = $q.defer();
+		    $http.post('http://www.sentiment140.com/api/bulkClassifyJson', tweets)
 		       .success(function(data) { 
 		          deferred.resolve({
 		             title: data.title,
