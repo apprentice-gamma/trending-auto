@@ -43,6 +43,7 @@
 		
 		return {
 		   getSentiment: function(tweets) {
+		   	console.log("sentiment is happening");
 		   	var vm = this;
 			vm.search = SearchController.searchString;
 			vm.tweets = Search.getTweets(search);
@@ -54,6 +55,7 @@
 		          deferred.reject(msg);
 		          console.log(msg, code);
 		       });
+		     console.log(deferred.promise);
 		     return deferred.promise;
 		   }
 		};
