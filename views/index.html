@@ -21,9 +21,9 @@
       <button>Close</button>
     </header>
 		<!-- All visible stuff goes here -->
-		<div ng-controller="TrendController as trend"> {{trend.dictateTrends}}
-        <div class="twitter-headline" ng-repeat="name in trend.trendsNameArray">
-           {{name}}<br />
+		<div ng-controller="TrendController as trend">
+        <div class="twitter-headline">
+            {{trend.currentTrend()}}
         </div>
 		</div>
     <div ng-controller="SearchController as search">

@@ -33,23 +33,27 @@
 	}]);
 
 	TwitterServices.factory('Speech', [
-		"$q",
-		function($q) {
+		function() {
+      var currentText = '';
 			return {
 				speak: function(text) {
-					var deferred = $q.defer();
 					var utterance = new SpeechSynthesisUtterance();
 					var voices = window.speechSynthesis.getVoices();
-
 					utterance.voice = voices.filter(function(voice) {
 						return voice.name == 'Daniel';
 					})[0];
 
 					utterance.text = text;
 
-					deferred.resolve(window.speechSynthesis.speak(utterance));
-					return deferred;
-				}
+					window.speechSynthesis.speak(utterance);
+          return utterance.onstart = function(){
+            return currentText = text;
+          }
+				},
+        getText: function() {
+          console.log(currentText);
+          return currentText;
+        }
 			}
 		}
 	])
@@ -61,7 +65,6 @@
 		"$q",
 		function(consumerKey, consumerSecret, bearerToken, $q){
 			return {
-				deferred: $q.defer(),
 				getTweets: function(search){
 				 	console.log("Search method called");
 					var cb = new Codebird;

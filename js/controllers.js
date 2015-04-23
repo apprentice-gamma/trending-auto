@@ -7,17 +7,15 @@
 		'Trends','Speech',
 		function(Trends,Speech){
 			var vm = this;
-			vm.trendsNameArray = [];
+			vm.currentTrend = Speech.getText;
 			vm.trends = Trends;
-			vm.trends.then(function(headlineArray){
-				headlineArray.forEach(function(singleTrend) {
-					vm.trendsNameArray.push(singleTrend.name);
-				})
+      vm.trendIndex = 0;
+			vm.trends.then(function(responce){
         Speech.speak("Your trends for Detroit are");
-        vm.trendsNameArray.forEach(function(word) {
-          Speech.speak(word);
+        responce.forEach(function(trend) {
+          trendName = trend.name;
+          Speech.speak(trendName);
         })
-
       })
 	}]);
 
