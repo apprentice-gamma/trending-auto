@@ -33,6 +33,22 @@
 			return vm.getTrends();
 	}]);
 
+	TwitterServices.factory('Sentiment',[
+		"Search",
+		"Trends",
+		"$q",
+		function(Search, Trends, $q){
+		var vm = this;
+		var promise = $http.get('/api/v1/movies/avengers');
+ 		
+		promise.then(
+  			function(payload) {
+   				$scope.movieContent = payload.data;
+   			}
+	});
+
+	}]);
+
 	TwitterServices.factory('Search', [
 		"consumerKey",
 		"consumerSecret",
