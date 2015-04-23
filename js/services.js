@@ -49,12 +49,10 @@
 		    vm.deferred = $q.defer();
 		    $http.post('http://www.sentiment140.com/api/bulkClassifyJson', tweets)
 		       .success(function(data) { 
-		          deferred.resolve({
-		             title: data.title,
-		             cost: data.price});
+		          deferred.resolve(data)
 		       }).error(function(msg, code) {
 		          deferred.reject(msg);
-		          $log.error(msg, code);
+		          console.log(msg, code);
 		       });
 		     return deferred.promise;
 		   }
