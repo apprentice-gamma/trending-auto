@@ -18,10 +18,11 @@
 	}]);
 
 	TwitterControllers.controller('SearchController',[
-		//dependencies go here
-		function(){
+		'Search'
+		function(Search){
 			var vm = this;
 			vm.searchResults = [];
+			vm.search = Search;
 	}]);
 
 	TwitterControllers.controller('SpeechController', [
