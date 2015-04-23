@@ -40,6 +40,7 @@
 		          				console.log(data);
 		            			return deferred.resolve(data);
 							}
+						)
 				console.log(deferred.promise);
 				return deferred.promise;
 			}
