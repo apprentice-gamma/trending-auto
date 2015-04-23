@@ -38,7 +38,8 @@
 		"consumerSecret",
 		"bearerToken",
 		"$q",
-		function(consumerKey, consumerSecret, bearerToken, $q){
+		"SearchController",
+		function(consumerKey, consumerSecret, bearerToken, $q, SearchController){
 			/*	HOW TO DO A SEARCH
 				var params = {
 						q: "NYC"
@@ -55,7 +56,8 @@
 
 			var vm = this;
 			var deferred = $q.defer();
-			vm.getTweets = function(){
+			vm.search = SearchController.searchString;
+			vm.getTweets = function(search){
 			 	console.log("Search method called");
 				var cb = new Codebird;
 				var deferred = $q.defer();
@@ -74,7 +76,7 @@
 				console.log(deferred.promise);
 				return deferred.promise;
 			}
-			return vm.getTweets();
+			return vm.getTweets(search);
 	}]);
 
 })();

@@ -26,6 +26,7 @@
 		function(consumerKey, consumerSecret, bearerToken, $q){
 			var vm = this;
 			vm.searchResults = [];
+			/*
 			vm.doSearch = function(search){
 				console.log("Search method called");
 				var cb = new Codebird;
@@ -44,7 +45,8 @@
 						)
 				console.log(deferred.promise);
 				return deferred.promise;
-			}
+			}*/
+			
 			vm.searchString = "cats";
 			vm.querySearch = vm.doSearch(vm.searchString);
 	}]);
