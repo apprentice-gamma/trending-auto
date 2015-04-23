@@ -18,6 +18,12 @@
 	}]);
 
 	TwitterControllers.controller('SpeechController', [
-		function(){
-	}]);
+		'Speech',
+		function(Speech){
+			var vm = this;
+			vm.speech = Speech;
+			vm.text = "Hello World";
+			vm.speak = Speech.speak(vm.text);
+		}
+	]);
 })();
