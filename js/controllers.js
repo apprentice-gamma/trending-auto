@@ -17,6 +17,13 @@
 			})
 	}]);
 
+	TwitterControllers.controller('SearchController',[
+		'Search',
+		function(Search){
+			var vm = this;
+			vm.searchResults = Search.getTweets("cats");
+	}]);
+
 	TwitterControllers.controller('SpeechController', [
 		function(){
 	}]);
