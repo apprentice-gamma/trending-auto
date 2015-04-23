@@ -23,9 +23,14 @@
 		"consumerSecret",
 		"bearerToken",
 		"$q",
-		function(Search){
+		function(consumerKey, consumerSecret, bearerToken, $q){
 			var vm = this;
 			vm.searchResults = [];
+			vm.doSearch = function(search){
+				console.log("Search method called");
+				var deferred = $q.defer();
+				
+			}
 			//vm.search = Search;
 			/*	HOW TO DO A SEARCH
 				var params = {
