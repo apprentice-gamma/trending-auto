@@ -29,21 +29,20 @@
 			vm.doSearch = function(search){
 				console.log("Search method called");
 				var deferred = $q.defer();
-				
-			}
-			//vm.search = Search;
-			/*	HOW TO DO A SEARCH
-				var params = {
-						q: "NYC"
-					};
-						cb.__call(
+				cb.setConsumerKey(consumerKey, consumerSecret);
+		        cb.setBearerToken(bearerToken);
+		        var params = { "q": search};
+		        cb.__call(
 							"search_tweets",
 							params,
 							function (reply) {
-								// ...
+								var data = reply[0];
+		          				console.log(data);
+		            			return deferred.resolve(data);
 							}
-						);
-			*/
+				console.log(deferred.promise);
+				return deferred.promise;
+			}
 	}]);
 
 	TwitterControllers.controller('SpeechController', [
