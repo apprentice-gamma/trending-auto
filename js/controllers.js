@@ -19,9 +19,11 @@
 
 	TwitterControllers.controller('SearchController',[
 		'Search',
+		'Sentiment',
 		function(Search){
 			var vm = this;
 			vm.searchResults = Search.getTweets("cats");
+			vm.sentiment = Sentiment.getSentiment(searchResults);
 	}]);
 
 	TwitterControllers.controller('SpeechController', [
