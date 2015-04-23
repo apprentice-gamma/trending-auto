@@ -35,8 +35,9 @@
 
 	TwitterServices.factory('Sentiment',[
 		"$q",
-		"$http",	
-		function($q, $http){
+		"$http",
+		"appID",	
+		function($q, $http, appID){
 		
 		return {
 		   getSentiment: function(tweets) {
@@ -44,7 +45,7 @@
 			//var search = SearchController.searchString;
 			//var tweets = Search.getTweets(search);
 		    var deferred = $q.defer();
-		    $http.post('http://www.sentiment140.com/api/bulkClassifyJson', tweets)
+		    $http.post('http://www.sentiment140.com/api/bulkClassifyJson?'+appID, tweets)
 		       .success(function(data) { 
 		          deferred.resolve(data)
 		       }).error(function(msg, code) {
