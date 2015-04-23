@@ -39,49 +39,14 @@
 		"appID",	
 		function($q, $http, appID){
 		
-		return {
-		   getSentiment: function(tweets) {
-		   	console.log("sentiment is happening");
-			var xhr = new XMLHttpRequest();
-			  if ("withCredentials" in xhr) {
-
-			    // Check if the XMLHttpRequest object has a "withCredentials" property.
-			    // "withCredentials" only exists on XMLHTTPRequest2 objects.
-			    xhr.open($http.POST, 'http://www.sentiment140.com/api/bulkClassifyJson?'+appID, true);
-
-			  } else if (typeof XDomainRequest != "undefined") {
-
-			    // Otherwise, check if XDomainRequest.
-			    // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
-			    xhr = new XDomainRequest();
-			    xhr.open($http.POST, 'http://www.sentiment140.com/api/bulkClassifyJson?'+appID, true);
-
-			  } else {
-
-			    // Otherwise, CORS is not supported by the browser.
-			    xhr = null;
-
-			  }
-			  xhr.send();
-			  return xhr.onload = function(data){
-			  	console.log(data);
-			  	return data;
-			  };
-			//var search = SearchController.searchString;
-			//var tweets = Search.getTweets(search);
-		    var deferred = $q.defer();
-
-		    $http.post('http://www.sentiment140.com/api/bulkClassifyJson?'+appID, tweets)
-		       .success(function(data) { 
-		          deferred.resolve(data)
-		       }).error(function(msg, code) {
-		          deferred.reject(msg);
-		          console.log(msg, code);
-		       });
-		     console.log(deferred.promise);
-		     return deferred.promise;
-		   }
-		};
+			return {
+			   getSentiment: function(tweets) {
+				//could use single classification...
+				//get array of tweets, loop through them to classify (maybe not even all)
+				//get back object with polarity, push to new array
+				//return new array   	
+				};
+			}
 	}]);
 
 
