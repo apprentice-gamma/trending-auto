@@ -14,3 +14,4 @@ Check back for these upcoming features:
 - Twitter keys and tokens are user-specific, so they must be generated and stored in js/key.config.js to run the app.
 - Yahoo! WOEID (Where On Earth IDentifier) used to localize Twitter feed. https://developer.yahoo.com/geo/geoplanet/
 - Voice from Google Chrome's Speech Synthesis. http://codepen.io/matt-west/pen/wGzuJ
+- Sentiment140, used to analyze the sentiment of tweets from specific trends.
