@@ -8,15 +8,18 @@
 			$scope.trends = Trends;
 			$scope.trends.then(function(responce){
         Speech.speak("Your trends for Detroit are");
-        $interval( function(){
+        var interval = $interval( function(){
         responce.forEach(function(trend, index) {
-          if (index < 9) {
+          console.log(index)
+          if (index < 8) {
             trendName = trend.name;
             Speech.speak(trendName);
           } else {
-            $interval.cancel();
+            $interval.cancel(this);
+            interval = undefined;
           }
-          },5000, false);
+          },10000, -1, true);
+
         })
       })
 	});
