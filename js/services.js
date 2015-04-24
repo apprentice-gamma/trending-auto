@@ -54,16 +54,16 @@
 					for(i = 0; i < tweets.length; i++){
 						text = tweets[i].text
 						console.log(i);
-						 sentiment = $http.jsonp(vm.url + 'text=' + text + '&query=""'+'appid='+ appID)
+						sentiment = $http.jsonp(vm.url + 'text=' + text + '&query=""'+'appid='+ appID)
 						 	.success(function(data){
 						 		return deferred.resolve(data);
-						}
-					sentiments.push(sentiment);
-					return sentiments;
-					}		
-				};
+						 		sentiments.push(sentiment);
+							})
+					}
+			return sentiments;
 			}
-	}]);
+	}
+}]);
 
 
 	TwitterServices.factory('Search', [
@@ -73,7 +73,7 @@
 		"$q",
 		function(consumerKey, consumerSecret, bearerToken, $q){
       return {
-			$q.defer(),
+			deferred: $q.defer(),
 			getTweets: function(search){
 			 	console.log("Search method called");
 				var cb = new Codebird;
