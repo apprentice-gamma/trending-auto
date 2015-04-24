@@ -50,15 +50,18 @@
 				//return new array 
 					var vm = this;
 					var text;
+					var sentiment;
+					var sentiments = [];
 					for(i = 0; i < tweets.length; i++){
 						text = tweets[i].text
 						console.log(i);
-						 $http.jsonp(vm.url + 'text=' + '/' + lat + ',' + lng + '?callback=JSON_CALLBACK')
-					}
-
-
-
-
+						 sentiment = $http.jsonp(vm.url + 'text=' + text + '&query=""'+'appid='+ appID)
+						 	.success(function(data){
+						 		return deferred.resolve(data);
+						}
+					sentiments.push(sentiment);
+					}	
+				return sentiments;		
 				};
 			}
 	}]);
