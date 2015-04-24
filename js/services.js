@@ -42,6 +42,7 @@
 			return {
 				url: 'http://www.sentiment140.com/api/classify?',
 			    getSentiment: function(tweets) {
+			    	console.log('sentiment is happening');
 				//could use single classification...
 				//get array of tweets, loop through them to classify (maybe not even all)
 				//get back object with polarity, push to new array
@@ -60,6 +61,7 @@
 						 		sentiments.push(sentiment);
 							})
 					}
+			console.log(sentiments);
 			return sentiments;
 			}
 	}
