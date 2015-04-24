@@ -32,6 +32,7 @@ button {
   padding: 20px;
   font-size: 28px;
   border-radius: 10px;
+  color: #EEE;
   background-color: #2BB23E;
 }
 
@@ -43,6 +44,6 @@ button {
 
 .twitter-headline {
   text-align: center;
-  margin-top: 70px;
+  margin-top: 75px;
   font-size: 60px;
 }
