@@ -32,9 +32,9 @@
 			return vm.getTrends();
 	}]);
 
-	TwitterServices.factory('Speech', [
-		function() {
-      var currentText = '';
+	TwitterServices.factory('Speech', [ '$rootScope',
+		function($rootScope) {
+        var currentTrend = { name: ''};
 			return {
 				speak: function(text) {
 					var utterance = new SpeechSynthesisUtterance();
@@ -45,14 +45,13 @@
 
 					utterance.text = text;
 
-					window.speechSynthesis.speak(utterance);
-          return utterance.onstart = function(){
-            return currentText = text;
+          utterance.onstart = function(){
+            currentTrend.name = text;
           }
+					window.speechSynthesis.speak(utterance);
 				},
-        getText: function() {
-          console.log(currentText);
-          return currentText;
+        getTrend: function() {
+          return currentTrend;
         }
 			}
 		}

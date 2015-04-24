@@ -3,21 +3,23 @@
 		'TwitterServices'
 		]);
 
-	TwitterControllers.controller('TrendController', [
-		'Trends','Speech',
-		function(Trends,Speech){
-			var vm = this;
-			vm.currentTrend = Speech.getText;
-			vm.trends = Trends;
-      vm.trendIndex = 0;
-			vm.trends.then(function(responce){
+	TwitterControllers.controller('TrendController', function(Trends,Speech, $scope, $interval){
+			$scope.currentTrend = Speech.getTrend();
+			$scope.trends = Trends;
+			$scope.trends.then(function(responce){
         Speech.speak("Your trends for Detroit are");
-        responce.forEach(function(trend) {
-          trendName = trend.name;
-          Speech.speak(trendName);
+        $interval( function(){
+        responce.forEach(function(trend, index) {
+          if (index < 9) {
+            trendName = trend.name;
+            Speech.speak(trendName);
+          } else {
+            $interval.cancel();
+          }
+          },5000, false);
         })
       })
-	}]);
+	});
 
 	TwitterControllers.controller('SearchController',[
 		'Search',
