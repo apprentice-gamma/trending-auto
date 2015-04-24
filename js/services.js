@@ -40,15 +40,14 @@
 		function($q, $http, appID){
 		
 			return {
-				url: 'http://www.sentiment140.com/api/classify?'
-				deferred: $q.defer();
-
+				url: 'http://www.sentiment140.com/api/classify?',
 			    getSentiment: function(tweets) {
 				//could use single classification...
 				//get array of tweets, loop through them to classify (maybe not even all)
 				//get back object with polarity, push to new array
 				//return new array 
 					var vm = this;
+					var deferred = $q.defer();
 					var text;
 					var sentiment;
 					var sentiments = [];
@@ -60,8 +59,8 @@
 						 		return deferred.resolve(data);
 						}
 					sentiments.push(sentiment);
-					}	
-				return sentiments;		
+					return sentiments;
+					}		
 				};
 			}
 	}]);
@@ -74,7 +73,7 @@
 		"$q",
 		function(consumerKey, consumerSecret, bearerToken, $q){
       return {
-			  deferred: $q.defer(),
+			$q.defer(),
 			getTweets: function(search){
 			 	console.log("Search method called");
 				var cb = new Codebird;
