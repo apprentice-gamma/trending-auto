@@ -4,7 +4,7 @@
   left: 0;
   width: 796px;
   height: 376px;
-  background-color: #00A6DC;
+  background-color: #2BB23E;
   color: #EEE;
   font-family: sans-serif;
   padding: 0px;
@@ -14,7 +14,8 @@
 header {
   text-align: center;
   border-bottom: 2px solid #CCC;
-  margin-top: 10px;
+  padding-top: 10px;
+  background-color: #00A6DC;
 }
 
 h1 {
@@ -25,15 +26,12 @@ h1 {
   display: inline-block;
 }
 
-button {
+.close {
   float: right;
   margin-right: 30px;
-  margin-top: 20px;
-  padding: 20px;
-  font-size: 28px;
+  margin-top: 30px;
+  padding: 5px;
   border-radius: 10px;
-  color: #EEE;
-  background-color: #2BB23E;
 }
 
 .city {
