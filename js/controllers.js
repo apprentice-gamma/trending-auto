@@ -4,24 +4,19 @@
 		]);
 
 	TwitterControllers.controller('TrendController', function(Trends,Speech, $scope, $interval){
+    $interval(function() {
 			$scope.currentTrend = Speech.getTrend();
+      }, 100);
 			$scope.trends = Trends;
 			$scope.trends.then(function(responce){
         Speech.speak("Your trends for Detroit are");
-        var interval = $interval( function(){
+        console.log("Test call once");
         responce.forEach(function(trend, index) {
-          console.log(index)
-          if (index < 8) {
+          console.log("trend");
             trendName = trend.name;
             Speech.speak(trendName);
-          } else {
-            $interval.cancel(this);
-            interval = undefined;
-          }
-          },10000, -1, true);
-
+          })
         })
-      })
 	});
 
 	TwitterControllers.controller('SearchController',[
