@@ -21,10 +21,10 @@
       <button>Close</button>
     </header>
 		<!-- All visible stuff goes here -->
-		<div ng-controller="TrendController as trend">
-      <div class="twitter-headline" ng-repeat="name in trend.trendsNameArray">
-          {{name}}<br />
-      </div>
+		<div ng-controller="TrendController">
+        <div class="twitter-headline">
+            {{currentTrend.name}}
+        </div>
 		</div>
     <div ng-controller="SearchController as search">
       {{search.doSearch("cats")}}
@@ -36,6 +36,5 @@
   <script src="../js/services.js"></script>
   <script src="../js/key.config.js"></script>
   <script src="../js/controllers.js"></script>
-  <script src="../js/speak.js"></script>
 </body>
 </html>
