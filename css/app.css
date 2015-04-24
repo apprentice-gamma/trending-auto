@@ -5,29 +5,29 @@
   width: 796px;
   height: 376px;
   background-color: #00A6DC;
-  padding: 0px;
-  border: 2px solid #2BB23E;
   color: #EEE;
   font-family: sans-serif;
+  padding: 0px;
+  border: 2px solid #2BB23E;
 }
 
 header {
   text-align: center;
   border-bottom: 2px solid #CCC;
+  margin-top: 10px;
 }
 
 h1 {
-  width: 219px;
   margin: 0 auto;
-  margin-top: 40px;
   margin-left: 20px;
+  margin-bottom: 5px;
   font-size: 70px;
   display: inline-block;
 }
 
 button {
   float: right;
-  margin-right: 20px;
+  margin-right: 30px;
   margin-top: 20px;
   padding: 20px;
   font-size: 28px;
