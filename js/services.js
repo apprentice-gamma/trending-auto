@@ -9,13 +9,14 @@
 		"bearerToken",
 		"$q",
 		function(consumerKey, consumerSecret, bearerToken, $q){
-			var vm = this;
-			var deferred = $q.defer();
-			vm.getTrends = function(){
+      return {
+			  getTrends: function(location){
+		        console.log("Hello");
+			  var deferred = $q.defer();
 		        var cb = new Codebird;
 		        cb.setConsumerKey(consumerKey, consumerSecret);
 		        cb.setBearerToken(bearerToken);
-		        var params = { "id": 2391585};
+		        var params = { "id": location};
 
 		        var what = cb.__call(
 		          "trends_place",
@@ -26,10 +27,9 @@
 		            return deferred.resolve(data);
 		          }
 		        );
-		        console.log(deferred.promise);
 				return deferred.promise;
 			}
-			return vm.getTrends();
+    }
 	}]);
 
 	TwitterServices.factory('Speech', [ '$rootScope',
