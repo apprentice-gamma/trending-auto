@@ -35,15 +35,25 @@
 
       };
 
+    $scope.speakTrends = function() {
+      $timeout(function() {
+        $scope.runLocTrends();
+      },10)
+      $timeout(function() {
+        $scope.runNatTrends()
+      },10000)
+    }
+
     $timeout(function() {
       Speech.speak("Welcome to moTrend");
     },10)
-    $timeout(function() {
-    $scope.runLocTrends();
-    },10)
-    $timeout(function() {
-      $scope.runNatTrends()
-    },10000)
+    $scope.speakTrends();
+
+
+    $interval(function() {
+      $scope.speakTrends();
+    }, 900000); 
+);
       
 
 	});
